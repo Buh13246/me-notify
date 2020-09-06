@@ -31,6 +31,18 @@ func addDatabaseSchema() {
 		log.Fatalf("Could not create Scheme\nError: %s\n", err)
 	}
 
+	_, err = db.Exec("CREATE TABLE IF NOT EXISTS robots( Token VARCHAR(36) PRIMARY KEY NOT NULL, Owner int(64) NOT NULL, JoinToken VARCHAR(36) NOT NULL, Name VARCHAR (255) NOT NULL );")
+
+	if err != nil {
+		log.Fatalf("Could not create Scheme\nError: %s\n", err)
+	}
+
+	_, err = db.Exec("CREATE TABLE IF NOT EXISTS subscribers( Token VARCHAR(36) NOT NULL, ChatID int(64) NOT NULL);")
+
+	if err != nil {
+		log.Fatalf("Could not create Scheme\nError: %s\n", err)
+	}
+
 }
 
 func main() {

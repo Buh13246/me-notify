@@ -1,3 +1,4 @@
 .vscode/
 me-notify
 db.sqlite
+.env
